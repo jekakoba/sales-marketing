@@ -66,8 +66,8 @@ const config = {
 					}, {
 						loader: 'string-replace-loader',
 						options: {
-							// search: '.png|.jpeg|.jpg|.gif',
-							// replace: '.webp',
+							search: '.png|.jpeg|.jpg|.gif',
+							replace: '.webp',
 							flags: 'ig'
 						}
 					}, {
