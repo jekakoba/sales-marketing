@@ -25,7 +25,7 @@ if (!pugPages.length) {
 		replace: [
 			{ regex: '../img', to: 'img' },
 			{ regex: '@img', to: 'img' },
-			{ regex: '.png|.jpeg|.jpg|.gif', to: '.webp' },
+			// { regex: '.png|.jpeg|.jpg|.gif', to: '.webp' },
 			{ regex: 'NEW_PROJECT_NAME', to: rootFolder }
 		],
 	})]
@@ -66,8 +66,8 @@ const config = {
 					}, {
 						loader: 'string-replace-loader',
 						options: {
-							search: '.png|.jpeg|.jpg|.gif',
-							replace: '.webp',
+							// search: '.png|.jpeg|.jpg|.gif',
+							// replace: '.webp',
 							flags: 'ig'
 						}
 					}, {
