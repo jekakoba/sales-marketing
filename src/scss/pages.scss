@@ -1,0 +1,76 @@
+.page {
+	// .page__hero
+
+	&__hero {
+		@media (max-width: $mobile) {
+			background-color: #070707;
+		}
+		// @include adaptiveValue("margin-bottom", 100, 50);
+	}
+	// .page__about
+	&__advantages {
+		@include adaptiveValue("padding-top", 100, 0);
+		@include adaptiveValue("padding-bottom", 174, 50);
+	}
+	// .page__services
+
+	&__services {
+		@include adaptiveValue("padding-bottom", 174, 50);
+	}
+
+	// .page__projects
+
+	&__projects {
+		position: relative;
+		@include adaptiveValue("padding-bottom", 200, 50);
+
+		// position: relative;
+	}
+	// .page__about-us
+
+	&__about-us {
+		@include adaptiveValue("padding-top", 126, 60);
+		@include adaptiveValue("padding-bottom", 174, 30);
+	}
+
+	&__courses {
+		position: relative;
+		z-index: 4;
+		background-color: #f0f0f0;
+
+		@include adaptiveValue("padding-bottom", 150, 50);
+	}
+
+	// .page__articles-section
+
+	&__articles-section {
+		// @include adaptiveValue("padding-top", 100, 50);
+		@include adaptiveValue("padding-bottom", 100, 50);
+	}
+	// .page__about-company
+
+	&__about-company {
+		@include adaptiveValue("padding-bottom", 100, 50);
+	}
+}
+
+.page__advantages,
+.page__services,
+.page__projects,
+.page__articles-section,
+.page__about-company {
+	background-color: #070707;
+}
+
+.page__about-us,
+.page__course {
+	background-color: #f0f0f0;
+}
+
+.page__projects,
+.page__courses {
+	border-radius: 0 0 toRem(80) toRem(80);
+	@media (max-width: $mobileSmall) {
+		border-radius: 0 0 toRem(40) toRem(40);
+	}
+}

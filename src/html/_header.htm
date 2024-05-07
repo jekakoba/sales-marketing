@@ -1,4 +1,34 @@
-<header class="header">
+<header data-scroll="1" data-lp class="header">
 	<div class="header__container">
+		<div class="header__logo-wrapp">
+			<a href="#" class="header__logo">
+				<img src="@img/logo.svg" alt="logp">
+			</a>
+		</div>
+		<div class="header__menu menu">
+			<nav class="menu__body">
+				<ul class="menu__list">
+					<li class="menu__item"><a href="#" class="menu__link _hover-link">Послуги</a></li>
+					<li class="menu__item"><a href="#" class="menu__link _hover-link">Навчання</a></li>
+					<li class="menu__item"><a href="#" class="menu__link _hover-link">Курси</a></li>
+					<li class="menu__item"><a href="#" class="menu__link _hover-link">Про компанію</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="header__actions">
+			<button class="header__details  _hover-link" type="button">Обговорити деталі</button>
+			<div class="header__languages languages" data-dropdown>
+				<button class="language language_selected" data-dropdown-open type="button">UA</button>
+				<ul data-dropdown-list>
+					<li>
+						<a href="#" class="language">EN</a>
+					</li>
+					<li>
+						<a href="#" class="language">RU</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<button type="button" class="icon-menu" aria-label="open menu"><span></span></button>
 	</div>
 </header>

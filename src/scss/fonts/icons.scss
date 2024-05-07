@@ -13,3 +13,13 @@
 		@extend %ic;
 	}
 }
+
+._icon-arrow:before {
+	content: "\e90d";
+}
+._icon-chevron:before {
+	content: "\e900";
+}
+._icon-arrow-scroll:before {
+	content: "\e90e";
+}

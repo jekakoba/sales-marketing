@@ -1,14 +1,6 @@
-/*
-Документація по роботі у шаблоні: 
-Документація слайдера: https://swiperjs.com/
-Сніппет(HTML): swiper
-*/
 
-// Підключаємо слайдер Swiper з node_modules
-// При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
-// Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -19,28 +11,21 @@ EffectFade, Lazy, Manipulation
 // Стилі Swiper
 // Базові стилі
 import "../../scss/base/swiper.scss";
-// Повний набір стилів з scss/libs/swiper.scss
-// import "../../scss/libs/swiper.scss";
-// Повний набір стилів з node_modules
-// import 'swiper/css';
+
 
 // Ініціалізація слайдерів
 function initSliders() {
-	// Список слайдерів
-	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.swiper')) { // Вказуємо склас потрібного слайдера
+	if (document.querySelector('.services__slider')) { // Вказуємо склас потрібного слайдера
 		// Створюємо слайдер
-		new Swiper('.swiper', { // Вказуємо склас потрібного слайдера
-			// Підключаємо модулі слайдера
-			// для конкретного випадку
+		new Swiper('.services__slider', { // Вказуємо склас потрібного слайдера
+
 			modules: [Navigation],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
-			spaceBetween: 0,
-			//autoHeight: true,
+			slidesPerView: 2,
+			spaceBetween: 38,
+			loop: true,
 			speed: 800,
-
 			//touchRatio: 0,
 			//simulateTouch: false,
 			//loop: true,
@@ -74,34 +59,124 @@ function initSliders() {
 
 			// Кнопки "вліво/вправо"
 			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
+				prevEl: '.navigation__btn-prev',
+				nextEl: '.navigation__btn-next',
 			},
-			/*
+
 			// Брейкпоінти
 			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
+				320: {
+					spaceBetween: 20,
+					slidesPerView: 1.05,
+				},
+				479.98: {
+					slidesPerView: 1.3,
 				},
 				768: {
+					slidesPerView: 2.3,
+				},
+
+				1200: {
 					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
+					spaceBetween: 38,
 				},
 			},
-			*/
+
 			// Події
 			on: {
 
+			}
+		});
+	}
+	if (document.querySelector('.courses__slider')) { // Вказуємо склас потрібного слайдера
+		// Створюємо слайдер
+		new Swiper('.courses__slider', { // Вказуємо склас потрібного слайдера
+
+			modules: [Navigation, Autoplay],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 20,
+			loop: true,
+			speed: 800,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: true // Вимкнути автопрогравання при взаємодії користувача
+			},
+
+
+			// Кнопки "вліво/вправо"
+			navigation: {
+				prevEl: '.navigation__courses-btn-prev',
+				nextEl: '.navigation__courses-btn-next',
+			},
+
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					slidesPerView: 1.05,
+					spaceBetween: 20,
+				},
+				600: {
+					slidesPerView: 2.3,
+
+				},
+
+				991: {
+					slidesPerView: 3,
+				},
+
+			},
+
+			// Події
+			on: {
+
+			}
+		});
+	}
+
+
+	if (document.querySelectorAll('.slider-article').length > 0) {
+		document.querySelectorAll('.slider-article').forEach(sliderBlock => {
+			const mainSlider = sliderBlock.querySelector('.articles-section__slider')
+			const prevButton = sliderBlock.querySelector('.navigation-articles__btn-prev')
+			const nextButton = sliderBlock.querySelector('.navigation-articles__btn-next')
+
+			// Картка з проєктами 
+			if (mainSlider) {
+				new Swiper(mainSlider, {
+					modules: [Navigation, Autoplay],
+					observer: true,
+					observeParents: true,
+					slidesPerView: 2,
+					spaceBetween: 20,
+					loop: true,
+					speed: 800,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: true // Вимкнути автопрогравання при взаємодії користувача
+					},
+					navigation: {
+						prevEl: prevButton,
+						nextEl: nextButton,
+					},
+
+					breakpoints: {
+						320: {
+							slidesPerView: 1.05,
+							spaceBetween: 20,
+						},
+						600: {
+							slidesPerView: 1.1,
+
+						},
+
+						767.98: {
+							slidesPerView: 2,
+						},
+
+					},
+				});
 			}
 		});
 	}

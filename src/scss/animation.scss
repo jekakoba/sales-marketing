@@ -1,0 +1,274 @@
+._anim-title {
+	transform: translateY(20%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.2s,
+		transform 1s ease 0.2s;
+	._watcher-view & {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+._anim-sub-title {
+	transform: translateX(-50%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.4s,
+		transform 1s ease 0.4s;
+	&._watcher-view {
+		transform: translateX(0);
+		opacity: 0.7;
+	}
+}
+
+._slider-anim {
+	transform: translateY(10%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.4s,
+		transform 1s ease 0.4s;
+	&._watcher-view {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+//============= Hero секція===================//
+
+.hero__title {
+	transform: translateY(20%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.2s,
+		transform 1s ease 0.2s;
+	._watcher-view & {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.hero__text {
+	transform: translateY(20%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.4s,
+		transform 1s ease 0.4s;
+	._watcher-view & {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.hero__arrow-scroll {
+	opacity: 0;
+	transition: opacity 1.5s ease 1s;
+	._watcher-view & {
+		opacity: 1;
+	}
+}
+
+.hero__blockquote-block {
+	transform: translateX(20%);
+	opacity: 0;
+	transition:
+		opacity 0.6s ease 0.6s,
+		transform 0.6s ease 0.6s;
+	._watcher-view & {
+		position: relative;
+
+		transform: translateX(0);
+		opacity: 1;
+		@media (min-width: $mobile) {
+			top: toRem(-50);
+		}
+		@media (min-width: toEm(601)) and (max-width: $mobile) {
+			top: toRem(-130);
+		}
+	}
+}
+
+//============= advantages==================//
+
+.advantages__image-wrapper {
+	transform: translateX(-10%);
+	opacity: 0;
+	transition:
+		opacity 1.3s ease 0.6s,
+		transform 1.3s ease 0.6s;
+	._watcher-view & {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.advantages__block p {
+	transform: translateY(100%);
+	opacity: 0;
+	transition:
+		opacity 1s ease 0.6s,
+		transform 1s ease 0.6s;
+	._watcher-view & {
+		transform: translateY(0);
+		opacity: 0.7;
+	}
+}
+
+.advantages__block {
+	ul {
+		li {
+			opacity: 0;
+			transform: translate(0px, 15%);
+			transition:
+				opacity 0.8s,
+				transform 0.8s;
+
+			._watcher-view & {
+				opacity: 1;
+				transform: translate(0, 0);
+				@for $i from 1 through 6 {
+					&:nth-child(#{$i}) {
+						$startDelay: 0.6;
+						$delay: $i * 0.15 + $startDelay;
+						transition-delay: #{$delay}s;
+					}
+				}
+			}
+		}
+	}
+}
+
+.advantages__content {
+	p {
+		opacity: 0;
+		transform: translate(0px, 15%);
+		transition:
+			opacity 0.8s,
+			transform 0.8s;
+	}
+	&._watcher-view p {
+		opacity: 1;
+		transform: translate(0, 0);
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i}) {
+				$startDelay: 0.3;
+				$delay: $i * 0.1 + $startDelay;
+				transition-delay: #{$delay}s;
+			}
+		}
+	}
+}
+
+// Проєекти  //
+
+.item-project {
+	opacity: 0;
+	&:nth-child(1) {
+		transform: translateX(-10%);
+		transition:
+			opacity 1.3s ease 0.4s,
+			transform 1.3s ease 0.4s;
+		&._watcher-view {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	&:nth-child(2) {
+		transform: translateX(10%);
+
+		transition:
+			opacity 1.3s ease 0.6s,
+			transform 1.3s ease 0.6s;
+		&._watcher-view {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	&:nth-child(3) {
+		transform: translateX(10%);
+
+		transition:
+			opacity 1.3s ease 0.6s,
+			transform 1.3s ease 0.6s;
+		&._watcher-view {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+}
+
+// Історія засновника компанії
+
+// Статистика
+
+.item-statistics {
+	opacity: 0;
+	&:nth-child(1) {
+		transform: translateX(-10%);
+		transition:
+			opacity 1.3s ease 0.4s,
+			transform 1.3s ease 0.4s;
+		._watcher-view & {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	&:nth-child(2) {
+		transform: translateX(10%);
+
+		transition:
+			opacity 1.3s ease 0.6s,
+			transform 1.3s ease 0.6s;
+		._watcher-view & {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	&:nth-child(3) {
+		transform: translateX(10%);
+
+		transition:
+			opacity 1.3s ease 0.8s,
+			transform 1.3s ease 0.8s;
+		._watcher-view & {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+}
+
+.person-about-company__image {
+	opacity: 0;
+	transform: translateX(10%);
+	transition:
+		opacity 1.3s ease 0.6s,
+		transform 1.3s ease 0.6s;
+	&._watcher-view {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.person-about-company__link {
+	opacity: 0;
+	transform: translateX(-10%);
+	transition:
+		opacity 1.3s ease 0.6s,
+		transform 1.3s ease 0.6s,
+		color 0.3s ease;
+	&._watcher-view {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+.person-about-company__text {
+	opacity: 0;
+	transform: translateY(10%);
+	transition:
+		opacity 1.3s ease 0.7s,
+		transform 1.3s ease 0.7s;
+	&._watcher-view {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

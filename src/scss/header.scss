@@ -1,0 +1,90 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	transition: background-color 0.3s ease 0s;
+	&._header-scroll {
+		background-color: #070707;
+	}
+	// .header__container
+
+	&__container {
+		transition: min-height 0.3s ease 0s;
+		min-height: toRem(100);
+		display: grid;
+		align-items: center;
+		grid-template-columns: percent(210, 1127) 1fr auto;
+		padding-top: toRem(5);
+		padding-bottom: toRem(5);
+		column-gap: toRem(15);
+		@media (max-width: $mobile) {
+			grid-template-columns: toRem(60) auto toRem(30);
+			min-height: toRem(70);
+		}
+		@media (max-width: $mobileSmall) {
+			column-gap: toRem(10);
+		}
+		._header-scroll & {
+			min-height: toRem(70);
+		}
+	}
+
+	&__logo-wrapp {
+		position: relative;
+		z-index: 2;
+		@media (max-width: $mobile) {
+			transition: opacity 0.3s;
+			.menu-open & {
+				opacity: 0.2;
+			}
+		}
+	}
+
+	// .header__logo
+
+	&__logo {
+		img {
+			max-width: 100%;
+		}
+	}
+
+	// .header__details
+
+	&__details {
+		line-height: 1.3;
+		@media (max-width: $mobileSmall) {
+			font-size: toRem(12);
+		}
+		// flex-shrink: 0;
+	}
+
+	// .header__menu
+
+	&__menu {
+	}
+
+	&__actions {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("column-gap", 20, 15, 0, $containerWidth, 767.98);
+		@media (max-width: $mobile) {
+			justify-self: end;
+			transition: opacity 0.3s;
+			.menu-open & {
+				opacity: 0.2;
+			}
+		}
+		@media (max-width: $mobileSmall) {
+			column-gap: toRem(10);
+		}
+	}
+
+	// .header__languages
+
+	&__languages {
+	}
+}
