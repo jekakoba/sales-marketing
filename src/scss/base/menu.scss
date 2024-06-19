@@ -57,9 +57,56 @@
 		@media (max-width: $mobile) {
 			flex-direction: column;
 			align-items: flex-end;
-			gap: toRem(10);
+			gap: toRem(30);
 		}
 	}
+	// .menu__button-sub-menu
+	&__button-sub-menu {
+		&::before {
+			@media (min-width: $mobile) {
+				display: none;
+			}
+			@media (max-width: $mobile) {
+				transition: transform 0.3s;
+				transform: rotate(90deg);
+			}
+		}
+
+		@media (max-width: $mobile) {
+			display: flex;
+			gap: toRem(3);
+			flex-direction: row-reverse;
+
+			&._spoller-active {
+				color: $brandColor;
+				transition-delay: 0s;
+				&::before {
+					transform: rotate(270deg);
+					color: $brandColor;
+				}
+			}
+		}
+	}
+	.sub-menu-list-wrapper {
+		@media (min-width: $mobile) {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			left: 0;
+			top: toRem(16);
+			padding-top: toRem(5);
+			z-index: 2;
+			box-shadow: 0 toRem(4) toRem(4) 0 rgba(0, 0, 0, 0.25);
+			border-radius: toRem(5);
+			transition:
+				visibility 0.3s ease 0s,
+				opacity 0.3s ease 0s;
+		}
+		@media (max-width: $mobile) {
+			padding-top: toRem(13);
+		}
+	}
+
 	// .menu__item
 	&__item {
 		@media (max-width: $mobile) {
@@ -102,13 +149,79 @@
 				}
 			}
 		}
+
+		&_sub-menu {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+
+			@media (min-width: $mobile) {
+				position: relative;
+				gap: toRem(3);
+				transition:
+					visibility 0.3s ease 0s,
+					opacity 0.3s ease 0s;
+
+				&:hover .sub-menu-list-wrapper {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			@media (max-width: $mobile) {
+				flex-direction: column;
+				align-items: end;
+				font-size: toRem(22);
+				// gap: toRem(17);
+			}
+		}
+		&:has(._spoller-active) {
+			a {
+				@media (max-width: $mobile) {
+					transition-delay: 0s !important;
+				}
+			}
+		}
 	}
 	// .menu__link
-	&__link {
-		line-height: 1.6;
-		position: relative;
-		@media (max-width: $mobile) {
-			font-size: toRem(20);
+}
+
+.sub-menu {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+
+	@media (min-width: $mobile) {
+		border-radius: toRem(5);
+		background-color: white;
+		min-width: toRem(250);
+		padding: toRem(17) toRem(20) toRem(16) toRem(20);
+		row-gap: toRem(15);
+		height: 100%;
+		max-height: toRem(214);
+		overflow: auto;
+		&::-webkit-scrollbar {
+			display: none;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+	}
+	@media (max-width: $mobile) {
+		align-items: flex-end;
+		gap: toRem(12);
+	}
+	li {
+		a {
+			color: black;
+			transition: color 0.3s;
+			&:hover {
+				color: $brandColor;
+			}
+			@media (max-width: $mobile) {
+				color: white;
+				font-size: toRem(16);
+			}
 		}
 	}
 }

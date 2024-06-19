@@ -199,13 +199,14 @@ export function spollers() {
 				}
 			});
 		}
+
 		// Робота з контентом
 		function initSpollerBody(spollersBlock, hideSpollerBody = true) {
-			let spollerItems = spollersBlock.querySelectorAll('details');
+			let spollerItems = spollersBlock.querySelectorAll('[data-spoller-item]');
+			let spollersWrapperItem = document.querySelector('.spollers__wrapper-item')
 			if (spollerItems.length) {
-				//spollerItems = Array.from(spollerItems).filter(item => item.closest('[data-spollers]') === spollersBlock);
 				spollerItems.forEach(spollerItem => {
-					let spollerTitle = spollerItem.querySelector('summary');
+					let spollerTitle = spollerItem.querySelector('[data-spoller-title]');
 					if (hideSpollerBody) {
 						spollerTitle.removeAttribute('tabindex');
 						if (!spollerItem.hasAttribute('data-open')) {
@@ -213,11 +214,19 @@ export function spollers() {
 							spollerTitle.nextElementSibling.hidden = true;
 						} else {
 							spollerTitle.classList.add('_spoller-active');
+							spollerTitle.closest('.spollers__wrapper-item').classList.add('_spoller-active');
+
+							// spollersWrapperItem.classList.add('_spoller-active');
 							spollerItem.open = true;
 						}
 					} else {
 						spollerTitle.setAttribute('tabindex', '-1');
 						spollerTitle.classList.remove('_spoller-active');
+						if (spollerTitle.closest('.spollers__wrapper-item')) {
+							spollerTitle.closest('.spollers__wrapper-item').classList.remove('_spoller-active');
+						}
+
+						// spollersWrapperItem.classList.remove('_spoller-active');
 						spollerItem.open = true;
 						spollerTitle.nextElementSibling.hidden = false;
 					}
@@ -226,11 +235,11 @@ export function spollers() {
 		}
 		function setSpollerAction(e) {
 			const el = e.target;
-			if (el.closest('summary') && el.closest('[data-spollers]')) {
+			if (el.closest('[data-spoller-title]') && el.closest('[data-spollers]')) {
 				e.preventDefault();
 				if (el.closest('[data-spollers]').classList.contains('_spoller-init')) {
-					const spollerTitle = el.closest('summary');
-					const spollerBlock = spollerTitle.closest('details');
+					const spollerTitle = el.closest('[data-spoller-title]');
+					const spollerBlock = spollerTitle.closest('[data-spoller-item]');
 					const spollersBlock = spollerTitle.closest('[data-spollers]');
 					const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
 					const scrollSpoller = spollerBlock.hasAttribute('data-spoller-scroll');
@@ -243,6 +252,11 @@ export function spollers() {
 						!spollerBlock.open ? spollerBlock.open = true : setTimeout(() => { spollerBlock.open = false }, spollerSpeed);
 
 						spollerTitle.classList.toggle('_spoller-active');
+						if (spollerTitle.closest('.spollers__wrapper-item')) {
+							spollerTitle.closest('.spollers__wrapper-item').classList.toggle('_spoller-active');
+						}
+
+						// spollerTitle.parentNode.classList.toggle('_spoller-parrent-active')
 						_slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
 
 						if (scrollSpoller && spollerTitle.classList.contains('_spoller-active')) {
@@ -250,14 +264,12 @@ export function spollers() {
 							const scrollSpollerOffset = +scrollSpollerValue ? +scrollSpollerValue : 0;
 							const scrollSpollerNoHeader = spollerBlock.hasAttribute('data-spoller-scroll-noheader') ? document.querySelector('.header').offsetHeight : 0;
 
-							//setTimeout(() => {
 							window.scrollTo(
 								{
 									top: spollerBlock.offsetTop - (scrollSpollerOffset + scrollSpollerNoHeader),
 									behavior: "smooth",
 								}
 							);
-							//}, spollerSpeed);
 						}
 					}
 				}
@@ -280,9 +292,9 @@ export function spollers() {
 			}
 		}
 		function hideSpollersBody(spollersBlock) {
-			const spollerActiveBlock = spollersBlock.querySelector('details[open]');
+			const spollerActiveBlock = spollersBlock.querySelector('[data-spoller-item][open]');
 			if (spollerActiveBlock && !spollersBlock.querySelectorAll('._slide').length) {
-				const spollerActiveTitle = spollerActiveBlock.querySelector('summary');
+				const spollerActiveTitle = spollerActiveBlock.querySelector('[data-spoller-title]');
 				const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 				spollerActiveTitle.classList.remove('_spoller-active');
 				_slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
