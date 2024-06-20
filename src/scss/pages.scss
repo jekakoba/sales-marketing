@@ -12,6 +12,12 @@
 		@include adaptiveValue("padding-top", 100, 0);
 		@include adaptiveValue("padding-bottom", 174, 50);
 	}
+
+	// .page__team
+
+	&__team {
+		padding-bottom: toRem(200);
+	}
 	// .page__services
 
 	&__services {

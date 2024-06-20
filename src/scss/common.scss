@@ -385,3 +385,44 @@
 	width: toRem(65);
 	height: toRem(65);
 }
+
+.socials-block {
+	// .socials__list
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(5);
+	}
+
+	// .socials__item
+
+	&__item {
+		width: toRem(18);
+		height: toRem(18);
+	}
+
+	// .socials__link
+
+	&__link {
+		width: toRem(18);
+		height: toRem(18);
+		i {
+			svg {
+				transition: fill 0.3s;
+				width: toRem(18);
+				height: toRem(18);
+				fill: white;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				i {
+					svg {
+						fill: $brandColor;
+					}
+				}
+			}
+		}
+	}
+}

@@ -59,8 +59,8 @@ function initSliders() {
 
 			// Кнопки "вліво/вправо"
 			navigation: {
-				prevEl: '.navigation__btn-prev',
-				nextEl: '.navigation__btn-next',
+				prevEl: '.btn-navigation-services-prev',
+				nextEl: '.btn-navigation-services-next',
 			},
 
 			// Брейкпоінти
@@ -124,6 +124,48 @@ function initSliders() {
 
 				991: {
 					slidesPerView: 3,
+				},
+
+			},
+
+			// Події
+			on: {
+
+			}
+		});
+	}
+
+	if (document.querySelector('.team__slider')) { // Вказуємо склас потрібного слайдера
+		// Створюємо слайдер
+		new Swiper('.team__slider', { // Вказуємо склас потрібного слайдера
+
+			modules: [Navigation],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 3,
+			spaceBetween: 47,
+			loop: true,
+			speed: 800,
+			autoHeight: true,
+			navigation: {
+				prevEl: '.team-btn-prev',
+				nextEl: '.team-btn-next',
+			},
+
+			// Брейкпоінти
+			breakpoints: {
+				320: {
+					slidesPerView: 1.05,
+					spaceBetween: 20,
+				},
+				600: {
+					slidesPerView: 2.3,
+
+				},
+
+				991: {
+					slidesPerView: 3,
+					spaceBetween: 47,
 				},
 
 			},

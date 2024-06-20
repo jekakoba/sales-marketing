@@ -361,6 +361,274 @@
 	}
 }
 
+//=============================Наша команда===========================================================================//
+
+.team {
+	background-color: $darkColor;
+	// .team__container
+
+	&__container {
+	}
+
+	// .team__header
+
+	&__header {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+		column-gap: toRem(20);
+		padding-left: toRem(150);
+		&:not(:last-child) {
+			margin-bottom: toRem(80);
+		}
+	}
+
+	// .team__titles
+
+	&__titles {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(11);
+	}
+
+	// .team__title
+
+	&__title {
+	}
+
+	// .team__sub-title
+
+	&__sub-title {
+		font-size: toRem(15);
+		line-height: 1.53;
+		opacity: 0.7;
+	}
+
+	// .team__link
+
+	&__link {
+		display: flex;
+		gap: toRem(10);
+		flex-direction: row-reverse;
+		&::before {
+			transform: rotate(180deg);
+		}
+	}
+
+	// .team__body
+
+	&__body {
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 65.430346%;
+			height: 101.04878%;
+			transform: translate(-40%, -30%);
+			background: url("@img/decors/decor-team.svg") 0 0 / contain no-repeat;
+			pointer-events: none;
+		}
+	}
+
+	// .team__slider
+
+	&__slider {
+		padding-top: 5%;
+	}
+
+	// .team__wrapper
+
+	&__wrapper {
+		// display: grid !important;
+		// grid-template-columns: repeat(3, 1fr) !important;
+		// gap: toRem(47) !important;
+	}
+
+	// .team__slide
+
+	&__slide {
+	}
+
+	&__navigation {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: toRem(94);
+		gap: toRem(50);
+	}
+
+	.profile-slide {
+		position: relative;
+		transition: transform 0.3s;
+		// border: 0.0025px solid #fdc63e;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: $darkColor;
+			transition: all 0.3s ease 0s;
+			border: 0.0025px solid #fdc63e;
+			z-index: 3;
+			pointer-events: none;
+		}
+		// .profile-slide__image-wrapper
+
+		&__image-wrapper {
+			display: grid;
+			position: relative;
+			margin: toRem(0.5);
+			z-index: 4;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, #070707 100%);
+				z-index: 5;
+			}
+		}
+		&__image-wrapper > * {
+			grid-column: 1 / -1;
+			grid-row: 1/ -1;
+		}
+
+		// .profile-slide__image
+
+		&__image {
+			padding-bottom: 100%;
+			position: relative;
+			z-index: 1;
+			// border: 0.0025px solid #fdc63e;
+		}
+
+		// .profile-slide__title
+
+		&__title {
+			font-family: "Manrope";
+			font-size: toRem(24);
+			font-weight: 700;
+			line-height: 1.25;
+			padding: 0 toRem(22) 0 toRem(30);
+			position: relative;
+			z-index: 20;
+			align-self: end;
+		}
+
+		// .profile-slide__body
+
+		&__body {
+			display: flex;
+			flex-direction: column;
+			padding: toRem(23) toRem(22) toRem(30) toRem(30);
+		}
+
+		// .profile-slide__content
+
+		&__content {
+			display: flex;
+			gap: toRem(19);
+			align-items: center;
+			position: relative;
+			z-index: 5;
+		}
+
+		// .profile-slide__socials
+
+		&__socials {
+			padding-right: toRem(16);
+			border-right: toRem(0.5) solid #fff;
+		}
+
+		// .profile-slide__text
+
+		&__text {
+			font-size: toRem(15);
+			line-height: 1.5;
+			max-width: toRem(200);
+		}
+
+		&__footer {
+			overflow: hidden;
+			align-self: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			// width: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 5;
+			transform: translateY(0);
+			opacity: 0;
+			pointer-events: none;
+			transition: all 0.3s;
+			padding: toRem(10) toRem(30) toRem(30) toRem(30);
+			border: 0.0025px solid #fdc63e;
+			border-top: none;
+			visibility: hidden;
+			transition: all 0.3s;
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				opacity: 0;
+				background-color: $darkColor;
+				transition: opacity 0.2s;
+			}
+		}
+
+		// .profile-slide__button
+
+		&__button {
+			opacity: 0;
+			transition: opacity 0.2s 0s;
+			// display: none;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				// &::before {
+				// 	height: calc(100% + 63px);
+				// }
+				// .profile-slide__footer {
+				// 	opacity: 1;
+				// 	visibility: visible;
+				// }
+				transform: translateY(-5%);
+				&::before {
+					transition: border-color 0.1s 0s;
+					border-bottom-color: transparent;
+				}
+				.profile-slide__footer {
+					opacity: 1;
+					transform: translateY(calc(100% - 10px));
+					pointer-events: all;
+					visibility: visible;
+					&::before {
+						opacity: 1;
+						transition: opacity 0.3s;
+					}
+				}
+				.profile-slide__button {
+					transition: opacity 0.3s 0.2s;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
 //========Наші послуги=========//
 .services {
 	// .services__container
