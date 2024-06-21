@@ -16,7 +16,9 @@
 	// .page__team
 
 	&__team {
-		padding-bottom: toRem(200);
+		&:not(:last-child) {
+			@include adaptiveValue("padding-bottom", 116, 50);
+		}
 	}
 	// .page__services
 

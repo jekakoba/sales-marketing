@@ -272,3 +272,29 @@
 		opacity: 1;
 	}
 }
+
+.team {
+	&__header {
+		transform: translateY(20%);
+		opacity: 0;
+		transition:
+			opacity 1s ease 0.2s,
+			transform 1s ease 0.2s;
+		._watcher-view & {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	&__slider {
+		transform: translateY(10%);
+		opacity: 0;
+		transition:
+			opacity 1s ease 0.3s,
+			transform 1s ease 0.3s;
+		._watcher-view & {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}
